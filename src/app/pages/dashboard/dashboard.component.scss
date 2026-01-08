@@ -1,0 +1,145 @@
+:host {
+    display: block;
+    background-color: #f9fafb;
+    /* Light mode background */
+    color: #1f2937;
+    /* Gray 800 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    :host-context(.dark) & {
+        background-color: #030712;
+        /* Dark slate 950 */
+        color: #f9fafb;
+    }
+}
+
+.hero-section {
+    background: radial-gradient(circle at 50% 50%, rgba(243, 244, 246, 1) 0%, rgba(249, 250, 251, 1) 100%);
+    transition: background 0.3s ease;
+
+    :host-context(.dark) & {
+        background: radial-gradient(circle at 50% 50%, rgba(17, 24, 39, 1) 0%, rgba(3, 7, 18, 1) 100%);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #22d3ee, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #0096d6, #00c6ff);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 150, 214, 0.2);
+
+    &:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 150, 214, 0.3);
+    }
+
+    :host-context(.dark) & {
+        background: linear-gradient(90deg, #22d3ee, #818cf8);
+        color: #030712;
+        box-shadow: 0 10px 15px -3px rgba(34, 211, 238, 0.3);
+
+        &:hover {
+            box-shadow: 0 20px 25px -5px rgba(34, 211, 238, 0.4);
+        }
+    }
+}
+
+.btn-outline {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1f2937;
+    backdrop-filter: blur(8px);
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 1);
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    :host-context(.dark) & {
+        background-color: rgba(17, 24, 39, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #f9fafb;
+
+        &:hover {
+            background-color: rgba(17, 24, 39, 0.8);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+/* Social Icon Hover Effects */
+.social-icon svg {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+}
+
+/* Animated Background Blobs */
+.blob {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+    /* Lower opacity for light mode */
+    animation: blob-float 20s infinite alternate;
+    transition: opacity 0.3s ease;
+
+    :host-context(.dark) & {
+        opacity: 0.15;
+    }
+}
+
+.blob-1 {
+    background: #06b6d4;
+    top: 10%;
+    left: -5%;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    background: #7c3aed;
+    bottom: 10%;
+    right: -5%;
+    animation-delay: -5s;
+}
+
+@keyframes blob-float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Material Icons adjustment */
+.material-icons {
+    vertical-align: middle;
+    line-height: inherit;
+}
+
+/* Custom spacing and typography improvements */
+@media (max-width: 640px) {
+    .text-5xl {
+        font-size: 2.75rem;
+    }
+}

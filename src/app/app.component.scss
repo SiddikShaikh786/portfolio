@@ -1,0 +1,245 @@
+/* ===========================
+   APP CONTAINER
+   =========================== */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f9fafb 0%, #f1f5f9 100%);
+
+    :host-context(.the) & {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+.main-content {
+    flex: 1;
+    width: 100%;
+    margin-top: 80px;
+    /* Height of fixed header */
+    padding: 0;
+    padding: 0;
+    position: relative;
+
+    /* Smooth scroll behavior */
+    scroll-behavior: smooth;
+
+    /* Custom scrollbar */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+        }
+    }
+
+    :host-context(.dark) & {
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+    }
+}
+
+/* ===========================
+   RESPONSIVE ADJUSTMENTS
+   =========================== */
+
+/* Mobile devices (portrait) */
+@media (max-width: 640px) {
+    .main-content {
+        margin-top: 70px;
+        /* Slightly smaller header on mobile */
+    }
+}
+
+/* Tablets and small laptops */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .main-content {
+        margin-top: 75px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .main-content {
+        margin-top: 80px;
+    }
+}
+
+/* ===========================
+   PAGE TRANSITIONS
+   =========================== */
+.main-content {
+    animation: fadeInContent 0.4s ease-out;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   CONTENT WRAPPER (optional)
+   Use this class inside your routed components
+   =========================== */
+.content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+
+    @media (max-width: 640px) {
+        padding: 1.5rem 1rem;
+    }
+
+    @media (min-width: 1441px) {
+        padding: 3rem 2rem;
+    }
+}
+
+/* ===========================
+   GLASS EFFECT SECTIONS
+   =========================== */
+.glass-section {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+
+    :host-context(.dark) & {
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+
+/* Spacing utilities */
+.section-padding {
+    padding: 4rem 0;
+
+    @media (max-width: 640px) {
+        padding: 2rem 0;
+    }
+}
+
+.section-margin {
+    margin: 4rem 0;
+
+    @media (max-width: 640px) {
+        margin: 2rem 0;
+    }
+}
+
+/* Text utilities */
+.gradient-text {
+    background: linear-gradient(135deg, #0096d6 0%, #00c6ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation utilities */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Stagger animation delays */
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+
+.stagger-4 {
+    animation-delay: 0.4s;
+}
+
+.stagger-5 {
+    animation-delay: 0.5s;
+}
