@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi
 import { RequestInterceptor } from './shared/services/request.interceptor';
 import { LoaderService } from './shared/services/loader.service';
 import { InterceptorConfigService } from './shared/services/interceptor-config.service';
+import { isDevMode } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,5 +17,9 @@ export const appConfig: ApplicationConfig = {
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
     LoaderService,
     InterceptorConfigService,
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ]
 };
