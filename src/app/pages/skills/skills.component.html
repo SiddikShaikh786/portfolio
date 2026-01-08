@@ -1,1 +1,28 @@
-<p>skills works!</p>
+<section class="skills-section relative min-h-screen py-24 px-4 overflow-hidden" [@staggerFadeIn]>
+    <div class="container max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-item">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">
+                <span class="gradient-text">Technical Skills</span>
+            </h2>
+            <p class="text-lg md:text-xl text-slate-800 dark:text-gray-400 font-bold">
+                Technologies and tools I work with
+            </p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div *ngFor="let category of skillCategories" class="skill-card p-8 animate-item">
+                <h3 class="text-xl font-bold mb-6 text-cyan-700 dark:text-cyan-400">
+                    {{category.name}}
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span *ngFor="let skill of category.skills"
+                        class="skill-tag px-4 py-2 rounded-full text-sm font-bold transition-all duration-300">
+                        {{skill}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
