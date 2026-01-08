@@ -1,0 +1,111 @@
+:host {
+    display: block;
+    background-color: #f9fafb;
+    color: #0f172a;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    :host-context(.dark) & {
+        background-color: #030712;
+        color: #f9fafb;
+    }
+}
+
+.contact-section {
+    background: radial-gradient(circle at 50% 50%, rgba(241, 245, 249, 1) 0%, rgba(248, 250, 252, 1) 100%);
+    transition: background 0.3s ease;
+
+    :host-context(.dark) & {
+        background: radial-gradient(circle at 50% 50%, rgba(17, 24, 39, 1) 0%, rgba(3, 7, 18, 1) 100%);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #0ea5e9, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Card Styling */
+.contact-info-card,
+.message-card {
+    border-radius: 24px;
+    backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+
+    h3,
+    p,
+    a {
+        color: #0f172a !important;
+        /* Force slate 900 in light mode */
+
+        :host-context(.dark) & {
+            color: #f8fafc !important;
+        }
+    }
+
+    &:hover {
+        background: #ffffff;
+        border-color: rgba(14, 165, 233, 0.3);
+        transform: translateY(-5px);
+    }
+
+    :host-context(.dark) & {
+        background: rgba(17, 24, 39, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+
+        &:hover {
+            background: rgba(17, 24, 39, 0.8);
+        }
+    }
+}
+
+/* Input Styling */
+input,
+textarea {
+    color: #0f172a;
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+
+    &:focus {
+        background-color: #ffffff;
+        border-color: #0ea5e9;
+    }
+
+    :host-context(.dark) & {
+        color: #f8fafc;
+        background-color: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.1);
+
+        &:focus {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: #0ea5e9;
+        }
+    }
+
+    &::placeholder {
+        color: #64748b;
+
+        :host-context(.dark) & {
+            color: #94a3b8;
+        }
+    }
+}
+
+.contact-info-card .material-icons {
+    filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.2));
+}
+
+@media (max-width: 1024px) {
+
+    .contact-info-card,
+    .message-card {
+        padding: 32px;
+    }
+}

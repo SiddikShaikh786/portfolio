@@ -1,1 +1,107 @@
-<p>projects works!</p>
+<section class="projects-section relative min-h-screen py-24 px-4 overflow-hidden" [@staggerFadeIn]>
+    <div class="container max-w-7xl mx-auto flex flex-col items-center">
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-item">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 transition-colors duration-300">
+                <span class="gradient-text">Projects & PoCs</span>
+            </h2>
+            <p class="text-lg md:text-xl text-slate-800 dark:text-gray-400 font-medium transition-colors duration-300">
+                Impactful solutions across AI, automation, and Angular-based development
+            </p>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="w-full mb-20 animate-item">
+            <h3 class="text-2xl font-bold mb-8 text-center text-slate-800 dark:text-white">
+                Key Projects</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <div *ngFor="let project of keyProjects" class="key-project-card p-8 animate-item">
+                    <div class="flex justify-between items-start mb-6">
+                        <div
+                            class="p-3 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 transition-colors duration-300">
+                            <span class="material-icons text-3xl">{{project.icon}}</span>
+                        </div>
+                        <span *ngIf="project.isCurrent"
+                            class="px-3 py-1 rounded-full bg-cyan-500 text-white text-[10px] uppercase font-bold tracking-wider">Current</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">
+                        {{project.title}}</h4>
+                    <p
+                        class="text-slate-700 dark:text-gray-300 text-sm leading-relaxed mb-6 transition-colors duration-300">
+                        {{project.description}}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span *ngFor="let t of project.tech"
+                            class="px-3 py-1 rounded-md bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[11px] font-semibold text-slate-700 dark:text-gray-400 transition-colors duration-300">
+                            {{t}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proof of Concepts -->
+        <div class="w-full mb-20 animate-item">
+            <h3 class="text-2xl font-bold mb-8 text-center text-slate-800 dark:text-white">
+                Proof of Concepts</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div *ngFor="let poc of pocs" class="poc-card p-6 animate-item">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 transition-colors duration-300">
+                            <span class="material-icons">{{poc.icon}}</span>
+                        </div>
+                        <h4 class="font-bold text-slate-800 dark:text-white flex items-center">
+                            {{poc.title}}
+                            <span *ngIf="poc.hasIndicator"
+                                class="ml-2 w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        </h4>
+                    </div>
+                    <p class="text-slate-700 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                        {{poc.description}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capstone Projects -->
+        <div class="w-full mb-20 animate-item">
+            <h3 class="text-2xl font-bold mb-8 text-center text-slate-800 dark:text-white">
+                Capstone Projects</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div *ngFor="let cap of capstoneProjects" class="capstone-card p-6 animate-item">
+                    <h4 class="font-bold mb-3 text-slate-800 dark:text-white">
+                        {{cap.title}}</h4>
+                    <p class="text-slate-700 dark:text-gray-300 text-xs leading-relaxed transition-colors duration-300">
+                        {{cap.description}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div class="w-full animate-item">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 transition-colors duration-300">
+                    <span class="gradient-text">Education & Certifications</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div *ngFor="let ed of education" class="education-card p-10 animate-item">
+                    <div class="p-4 rounded-xl bg-cyan-500/10 text-cyan-500 mb-8 inline-block">
+                        <span class="material-icons text-4xl">{{ed.icon}}</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-800 dark:text-white">
+                        {{ed.title}}
+                    </h3>
+                    <p class="text-lg font-bold text-cyan-600 dark:text-cyan-400 mb-4 transition-colors duration-300">
+                        {{ed.specialization}}
+                    </p>
+                    <p class="text-slate-700 dark:text-gray-300 font-medium mb-1 transition-colors duration-300">
+                        {{ed.institution}}
+                    </p>
+                    <p class="text-slate-600 dark:text-gray-500 font-semibold transition-colors duration-300">
+                        {{ed.period}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
